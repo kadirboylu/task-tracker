@@ -2,6 +2,8 @@
 
 A task tracking application built with React that stores your tasks in REST API via "JSON-server".
 
+[Task Tracker App](https://boylutracker.netlify.app/)
+
 ## Usage
 
 ### Install dependencies
@@ -16,7 +18,7 @@ npm install
 npm start
 ```
 
-### Run the JSON server (http://localhost:5000)
+### Run the JSON server (http://192.168.0.29:5000)
 
 ```
 npm run server
