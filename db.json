@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Doctors Appointment",
+      "day": "2022-08-25 14:00",
+      "reminder": true
+    },
+    {
+      "text": "Shopping",
+      "day": "2022-07-30 15:30",
+      "reminder": true,
+      "id": 2
+    },
+    {
+      "text": "Homework",
+      "day": "2022-07-29 18:30",
+      "reminder": true,
+      "id": 3
+    },
+    {
+      "text": "Meeting at Work",
+      "day": "2022-07-26 09:00",
+      "reminder": true,
+      "id": 4
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(245, 165, 80);
+}
+
+#root {
+  margin: 1.25rem;
+}
+
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 100px;
+  border: 2px solid rgb(0, 0, 0);
+  user-select: none;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+.btn:focus {
+  outline: none;
+}
+.btn:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
+.task {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.task.reminder {
+  border-left: 5px solid green;
+  transition: all 0.3s;
+}
+.task h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.delete {
+  color: red;
+  cursor: pointer;
+}
+.delete:hover {
+  color: darkred;
+}
+.add-form {
+  margin-bottom: 40px;
+}
+.form-control {
+  margin: 20px 0;
+  color: white;
+}
+.form-control label {
+  display: block;
+}
+.form-control input {
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+  border: white;
+}
+input:focus {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  outline: none;
+}
+.form-control-check {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+.form-control-check label {
+  width: auto;
+}
+.form-control-check input {
+  height: 20px;
+  width: 20px;
+}
+footer {
+  margin-top: 30px;
+  text-align: center;
+  color: white;
+}
+
+.link:visited {
+  color: white;
+}
+
+.link:hover {
+  color: steelblue;
+}
