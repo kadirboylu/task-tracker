@@ -10,8 +10,8 @@
     {
       "text": "Shopping",
       "day": "2022-07-30 15:30",
-      "reminder": false,
-      "done": true,
+      "reminder": true,
+      "done": false,
       "id": 2
     },
     {

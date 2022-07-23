@@ -9,7 +9,7 @@ import About from "./components/About";
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
-  const baseURI = "https://task-tracker-backend-kdr.herokuapp.com/tasks";
+  const baseURI = "http://192.168.0.29:5000/tasks";
   useEffect(() => {
     const getTasks = async () => {
       const tasksFromServer = await fetchTasks();
