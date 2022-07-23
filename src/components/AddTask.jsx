@@ -4,6 +4,7 @@ const AddTask = ({ onAdd }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
   const [reminder, setReminder] = useState(false);
+  const [done, setDone] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -13,11 +14,12 @@ const AddTask = ({ onAdd }) => {
       return;
     }
 
-    onAdd({ text, day: day.replace("T", " "), reminder });
+    onAdd({ text, day: day.replace("T", " "), reminder, done });
 
     setText("");
     setDay("");
     setReminder(false);
+    setDone(false);
   };
   return (
     <form className="add-form" onSubmit={onSubmit}>

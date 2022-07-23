@@ -9,7 +9,7 @@ import About from "./components/About";
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
-
+  const baseURI = "https://task-tracker-backend-kdr.herokuapp.com/tasks";
   useEffect(() => {
     const getTasks = async () => {
       const tasksFromServer = await fetchTasks();
@@ -21,7 +21,7 @@ function App() {
 
   // Fetch Tasks
   const fetchTasks = async () => {
-    const response = await fetch("http://192.168.0.29:5000/tasks");
+    const response = await fetch(baseURI);
     const data = await response.json();
 
     return data;
@@ -29,7 +29,7 @@ function App() {
 
   // Fetch Task
   const fetchTask = async (id) => {
-    const res = await fetch(`http://192.168.0.29:5000/tasks/${id}`);
+    const res = await fetch(`${baseURI}/${id}`);
     const data = await res.json();
 
     return data;
@@ -37,7 +37,7 @@ function App() {
 
   //Add Task
   const addTask = async (task) => {
-    const res = await fetch("http://192.168.0.29:5000/tasks", {
+    const res = await fetch(baseURI, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -55,7 +55,7 @@ function App() {
 
   // Delete Task
   const deleteTask = async (id) => {
-    await fetch(`http://192.168.0.29:5000/tasks/${id}`, {
+    await fetch(`${baseURI}/${id}`, {
       method: "DELETE",
     });
 
@@ -65,9 +65,13 @@ function App() {
   // Toggle Reminder
   const toggleReminder = async (id) => {
     const taskToToggle = await fetchTask(id);
-    const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
+    const updTask = {
+      ...taskToToggle,
+      reminder: !taskToToggle.reminder,
+      done: false,
+    };
 
-    const res = await fetch(`http://192.168.0.29:5000/tasks/${id}`, {
+    const res = await fetch(`${baseURI}/${id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
@@ -79,7 +83,32 @@ function App() {
 
     setTasks(
       tasks.map((task) =>
-        task.id === id ? { ...task, reminder: data.reminder } : task
+        task.id === id
+          ? { ...task, reminder: data.reminder, done: data.done }
+          : task
+      )
+    );
+  };
+
+  const taskDone = async (id) => {
+    const taskToDone = await fetchTask(id);
+    const updTask = { ...taskToDone, done: !taskToDone.done, reminder: false };
+
+    const res = await fetch(`${baseURI}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(updTask),
+    });
+
+    const data = await res.json();
+
+    setTasks(
+      tasks.map((task) =>
+        task.id === id
+          ? { ...task, done: data.done, reminder: data.reminder }
+          : task
       )
     );
   };
@@ -104,6 +133,7 @@ function App() {
                     tasks={tasks}
                     onDelete={deleteTask}
                     onToggle={toggleReminder}
+                    taskDone={taskDone}
                   />
                 ) : (
                   <p style={{ color: "white" }}>NO TASK TO SHOW</p>

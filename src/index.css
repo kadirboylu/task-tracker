@@ -82,6 +82,13 @@ body {
 .delete:hover {
   color: darkred;
 }
+.done {
+  color: rgb(0, 225, 0);
+  cursor: pointer;
+}
+.done:hover {
+  color: darkgreen;
+}
 .add-form {
   margin-bottom: 40px;
 }

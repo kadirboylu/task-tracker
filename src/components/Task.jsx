@@ -1,16 +1,23 @@
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaCheck } from "react-icons/fa";
 
-const Task = ({ task, onDelete, onToggle }) => {
+const Task = ({ task, onDelete, onToggle, taskDone }) => {
   return (
     <div
       className={`task ${task.reminder ? "reminder" : ""}`}
       onDoubleClick={() => onToggle(task.id)}
     >
       <h3>
-        {task.text}
-        {<FaTimes className="delete" onClick={() => onDelete(task.id)} />}
+        <div style={{ textDecoration: task.done ? "line-through" : "" }}>
+          {task.text}
+        </div>
+        <div className="icons">
+          {<FaCheck className="done" onClick={() => taskDone(task.id)} />}
+          {<FaTimes className="delete" onClick={() => onDelete(task.id)} />}
+        </div>
       </h3>
-      <p>{task.day}</p>
+      <p style={{ textDecoration: task.done ? "line-through" : "" }}>
+        {task.day}
+      </p>
     </div>
   );
 };
