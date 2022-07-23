@@ -3,29 +3,29 @@
     {
       "text": "Doctors Appointment",
       "day": "2022-08-25 14:00",
-      "reminder": false,
-      "done": true,
+      "reminder": true,
+      "done": false,
       "id": 1
     },
     {
       "text": "Shopping",
       "day": "2022-07-30 15:30",
-      "reminder": true,
-      "done": false,
+      "reminder": false,
+      "done": true,
       "id": 2
     },
     {
       "text": "Homework",
       "day": "2022-07-29 18:30",
-      "reminder": false,
-      "done": true,
+      "reminder": true,
+      "done": false,
       "id": 3
     },
     {
       "text": "Meeting at Work",
       "day": "2022-07-26 09:00",
-      "reminder": true,
-      "done": false,
+      "reminder": false,
+      "done": true,
       "id": 4
     }
   ]

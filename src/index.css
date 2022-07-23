@@ -75,6 +75,9 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.task h3 div {
+  display: flex;
+}
 .delete {
   color: red;
   cursor: pointer;
